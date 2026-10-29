@@ -4,404 +4,1415 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f7f5ef">
-<title>SAP Aesthet — Стоматология</title>
+<meta name="theme-color" content="#f8f7f2">
+<meta name="description" content="SAP Aesthet — стоматология в Ташкенте. Взрослая и детская стоматология, ортодонтия, имплантация и диагностика. Ежедневно с 09:00 до 19:00.">
+<meta property="og:title" content="SAP Aesthet — Искусство красивой улыбки">
+<meta property="og:description" content="Современная стоматология и забота о вашей улыбке. Запишитесь на приём в SAP Aesthet.">
+<meta property="og:type" content="website">
+<title>SAP Aesthet — Искусство красивой улыбки</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 :root {
-  --bg: #f7f5ef;
-  --white: #fffefa;
-  --green: #285c50;
-  --ink: #1b2927;
-  --muted: #6f7c77;
-  --line: #dce2dc;
-  --gold: #c6a66b;
+  --bg: #f8f7f2;
+  --paper: #fffefa;
+  --green: #244e41;
+  --green-dark: #18392f;
+  --green-light: #e7eee7;
+  --gold: #b39a6b;
+  --ink: #202d28;
+  --muted: #778079;
+  --line: #e4e5dc;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "Manrope", sans-serif;
+  --body: "DM Sans", sans-serif;
+  --radius: 5px;
+  --max: 1240px;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html { scroll-behavior: smooth; scroll-padding-top: 95px; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+body.menu-open { overflow: hidden; }
+::selection { background: var(--green); color: white; }
 a { color: inherit; text-decoration: none; }
-.container { width: min(1100px, 90%); margin: auto; }
-.topbar {
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { color: inherit; }
+img { display: block; max-width: 100%; }
+button:focus-visible, a:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+.container { width: min(var(--max), 88%); margin-inline: auto; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 10px var(--body);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.eyebrow::before {
+  content: "";
+  width: 27px;
+  height: 1px;
+  background: var(--gold);
+}
+.section { padding: 115px 0; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 35px;
+  margin-bottom: 48px;
+}
+.section-title {
+  margin: 17px 0 0;
+  font: 400 clamp(38px, 5.3vw, 66px)/1.08 var(--serif);
+  letter-spacing: -1.6px;
+}
+.section-title em { color: var(--green); font-weight: 400; }
+.section-description {
+  max-width: 355px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.btn {
+  min-height: 51px;
+  padding: 0 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 19px;
+  border: 1px solid var(--green);
   background: var(--green);
   color: white;
-  text-align: center;
-  padding: 9px;
   font-size: 11px;
-  letter-spacing: 3px;
+  font-weight: 700;
+  letter-spacing: .25px;
+  cursor: pointer;
+  transition: background .25s, color .25s, transform .25s, border-color .25s;
 }
-header {
+.btn:hover { background: var(--green-dark); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--green); }
+.btn-outline:hover { background: var(--green); color: white; }
+.btn-light { background: var(--paper); color: var(--green); border-color: var(--paper); }
+.btn-light:hover { background: var(--green-light); border-color: var(--green-light); color: var(--green-dark); }
+.arrow { font-size: 17px; line-height: 1; }
+.icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: 0 0 auto;
+}
+
+/* TOP BAR */
+.topbar {
+  background: var(--green-dark);
+  color: #f5f4ed;
+  font-size: 10px;
+  letter-spacing: .4px;
+}
+.topbar-inner {
+  min-height: 35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  padding: 22px 0;
+}
+.topbar-group { display: flex; gap: 24px; align-items: center; }
+.topbar a { opacity: .9; transition: opacity .2s; }
+.topbar a:hover { opacity: 1; color: #d5c29b; }
+
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248,247,242,.94);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
 }
-.logo {
-  font-size: 19px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  line-height: 1.3;
-}
-.logo span {
-  display: block;
-  color: var(--muted);
-  font-size: 9px;
-  letter-spacing: 4px;
-  font-weight: normal;
-}
-nav { display: flex; gap: 22px; font-size: 13px; }
-nav a:hover { color: var(--green); }
-.phone { font-weight: bold; font-size: 13px; }
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
-  padding: 75px 0;
-}
-.eyebrow {
-  color: var(--green);
-  letter-spacing: 3px;
-  font-size: 11px;
-  font-weight: bold;
-}
-h1 {
-  font-size: clamp(42px, 6vw, 68px);
-  line-height: 1.08;
-  letter-spacing: -2px;
-  font-weight: 500;
-  margin: 20px 0;
-}
-h1 em { color: var(--green); font-style: normal; }
-.description { color: var(--muted); font-size: 15px; max-width: 470px; }
-.buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
-.btn {
-  display: inline-block;
-  padding: 13px 19px;
-  background: var(--green);
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  border: 1px solid var(--green);
-  transition: .2s;
-}
-.btn:hover { opacity: .85; transform: translateY(-2px); }
-.btn.light { background: transparent; color: var(--green); }
-.hero-art {
-  min-height: 400px;
-  background: #dcebe3;
+.nav {
+  min-height: 82px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
+  gap: 30px;
 }
-.hero-art .circle {
-  width: 260px;
-  height: 260px;
-  border: 1px solid #a5c2b1;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 0 0 auto;
 }
-.tooth {
-  font-size: 150px;
+.logo-main {
+  font: 600 25px/1 var(--serif);
+  letter-spacing: 1.1px;
   color: var(--green);
-  line-height: 1;
 }
-.art-caption {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  right: 15px;
-  background: var(--white);
-  padding: 16px;
-  font-size: 13px;
+.logo-sub {
+  margin-top: 7px;
+  font-size: 8px;
+  letter-spacing: 3.7px;
+  color: #8a8a7d;
   text-align: center;
 }
-section { padding: 70px 0; }
-.services { background: var(--white); }
-.section-heading { margin-bottom: 30px; }
-h2 {
-  font-size: clamp(30px, 4vw, 44px);
-  line-height: 1.15;
-  letter-spacing: -1px;
-  font-weight: 500;
-  margin: 12px 0;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 32px);
 }
-.section-heading p { color: var(--muted); max-width: 500px; }
-.service-grid {
+.nav-links a {
+  font-size: 11px;
+  color: #4e5b53;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-actions { display: flex; align-items: center; gap: 15px; }
+.nav-actions .btn { min-height: 43px; padding-inline: 17px; font-size: 10px; }
+.menu-toggle {
+  display: none;
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+}
+.menu-toggle svg { width: 22px; height: 22px; }
+
+/* HERO */
+.hero { padding: 35px 0 45px; }
+.hero-layout {
+  min-height: 610px;
+  display: grid;
+  grid-template-columns: 1fr 1.03fr;
+  align-items: stretch;
+  background: #eeeae0;
+}
+.hero-copy {
+  padding: clamp(35px, 5.5vw, 75px) clamp(26px, 5vw, 68px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--green);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.hero-kicker::before {
+  content: "";
+  width: 25px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero h1 {
+  font: 400 clamp(46px, 5.4vw, 72px)/1.05 var(--serif);
+  letter-spacing: -2px;
+  margin: 28px 0 21px;
+}
+.hero h1 em { color: var(--green); font-weight: 400; }
+.hero-text {
+  color: #687269;
+  font-size: 13px;
+  line-height: 1.95;
+  max-width: 390px;
+  margin: 0 0 28px;
+}
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 38px;
+  color: #677169;
+  font-size: 10px;
+  line-height: 1.7;
+}
+.hero-note .icon { color: var(--gold); }
+.hero-image {
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+  background: #d6d7ca;
+}
+.hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 1s ease;
+}
+.hero-image:hover img { transform: scale(1.035); }
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(15,35,27,.55));
+  pointer-events: none;
+}
+.hero-image-caption {
+  position: absolute;
+  z-index: 2;
+  bottom: 28px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  color: white;
+  gap: 20px;
+}
+.hero-image-caption strong {
+  display: block;
+  font: 400 25px var(--serif);
+}
+.hero-image-caption span { font-size: 10px; opacity: .85; }
+.hero-image-caption .caption-number {
+  font: 10px var(--body);
+  letter-spacing: 1.5px;
+}
+
+/* TRUST STRIP */
+.trust-strip { padding: 24px 0; border-block: 1px solid var(--line); }
+.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.trust-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 10px 20px;
+  border-right: 1px solid var(--line);
+}
+.trust-item:first-child { justify-content: flex-start; padding-left: 0; }
+.trust-item:last-child { border-right: 0; justify-content: flex-end; padding-right: 0; }
+.trust-item .icon { color: var(--gold); width: 24px; height: 24px; }
+.trust-item strong { display: block; font-size: 12px; font-weight: 700; }
+.trust-item span { display: block; font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+/* SERVICES */
+.services { background: var(--paper); }
+.services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
 }
-.service {
-  padding: 25px;
+.service-card {
+  padding: 31px;
+  min-height: 240px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  transition: .2s;
+  position: relative;
+  transition: background .25s;
 }
-.service:hover { background: #f2f5ef; }
-.service .number { color: var(--gold); font-size: 11px; letter-spacing: 2px; }
-h3 { font-size: 18px; font-weight: 500; margin: 18px 0 8px; }
-.service p { color: var(--muted); font-size: 13px; margin-bottom: 0; }
-.about-grid {
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 55px;
-  align-items: center;
-}
-.about-art {
-  min-height: 330px;
-  background: #e9e8dc;
-  display: grid;
-  place-items: center;
-}
-.about-art .circle {
-  width: 220px;
-  height: 220px;
-  border: 1px solid #a5b8a8;
-  border-radius: 50%;
+.service-card:hover { background: #f2f3eb; }
+.service-icon {
+  width: 49px;
+  height: 49px;
   display: grid;
   place-items: center;
   color: var(--green);
-  font-size: 90px;
+  background: var(--green-light);
+  border-radius: 50%;
+  margin-bottom: 27px;
 }
-.about-copy p { color: var(--muted); font-size: 14px; }
-.features {
+.service-card h3 { font: 400 22px var(--serif); margin: 0 0 12px; }
+.service-card p {
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--muted);
+  margin: 0;
+  max-width: 290px;
+}
+.service-arrow {
+  position: absolute;
+  right: 25px;
+  top: 29px;
+  color: #a2a99e;
+  transition: transform .25s, color .25s;
+}
+.service-card:hover .service-arrow { transform: translate(3px,-3px); color: var(--green); }
+
+/* ABOUT */
+.about-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin: 25px 0;
-  font-size: 13px;
-}
-.features span { color: var(--green); margin-right: 8px; }
-.contact { background: var(--green); color: white; }
-.contact h2 { color: white; }
-.contact-intro { color: #dcebe3; max-width: 450px; }
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: clamp(35px, 8vw, 105px);
   align-items: center;
 }
-.contact-card { background: var(--white); color: var(--ink); padding: 28px; }
-.detail {
-  padding: 15px 0;
-  border-bottom: 1px solid var(--line);
+.about-visual { position: relative; min-height: 490px; }
+.about-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 86%;
+  height: 90%;
+  object-fit: cover;
+  object-position: center;
+  background: #e2e3d9;
 }
-.detail:last-of-type { border-bottom: none; }
-.detail small {
-  display: block;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
+.about-accent {
+  position: absolute;
+  width: 45%;
+  height: 42%;
+  right: 0;
+  bottom: 0;
+  background: var(--green);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
 }
-.detail strong { font-size: 14px; }
-.map-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-footer { padding: 28px 0 90px; font-size: 11px; color: var(--muted); }
-.footer-row { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
-.mobile-bar { display: none; }
+.about-accent .icon { width: 30px; height: 30px; margin-bottom: 13px; color: #d8c39b; }
+.about-accent strong { font: 400 22px var(--serif); }
+.about-accent span { font-size: 9px; margin-top: 8px; line-height: 1.7; color: #d5dfd8; }
+.about-copy .section-title { margin-bottom: 24px; }
+.about-copy p { color: var(--muted); font-size: 13px; line-height: 2; }
+.about-points { display: grid; gap: 16px; margin: 27px 0 30px; }
+.about-point { display: flex; align-items: flex-start; gap: 12px; }
+.check {
+  width: 22px; height: 22px; flex: 0 0 auto;
+  border: 1px solid #cbd8c9;
+  color: var(--green);
+  display: grid; place-items: center;
+  font-size: 12px;
+}
+.about-point strong { font-size: 12px; display: block; margin-bottom: 4px; }
+.about-point span { display: block; color: var(--muted); font-size: 11px; line-height: 1.7; }
 
-@media (max-width: 750px) {
-  header { flex-wrap: wrap; }
-  nav { order: 3; width: 100%; justify-content: space-between; gap: 10px; font-size: 12px; }
-  .phone { font-size: 12px; }
-  .hero { grid-template-columns: 1fr; padding: 45px 0; gap: 30px; }
-  .hero-art { min-height: 320px; }
-  .hero-art .circle { width: 220px; height: 220px; }
-  .tooth { font-size: 125px; }
-  section { padding: 50px 0; }
-  .service-grid { grid-template-columns: 1fr 1fr; }
-  .service { padding: 18px; }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
-  .about-art { min-height: 260px; }
-  .features { grid-template-columns: 1fr; }
-  .mobile-bar {
+/* FEATURE BANNER */
+.feature-banner {
+  background: var(--green);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.feature-layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 40px;
+  padding-block: 65px;
+  position: relative;
+}
+.feature-banner::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border: 1px solid #ffffff18;
+  border-radius: 50%;
+  right: 8%;
+  top: -240px;
+  box-shadow: 0 0 0 35px #ffffff08, 0 0 0 70px #ffffff05;
+}
+.feature-banner .eyebrow { color: #e0d2b2; }
+.feature-banner .eyebrow::before { background: #d8c39b; }
+.feature-banner h2 {
+  font: 400 clamp(34px, 4.5vw, 54px)/1.15 var(--serif);
+  letter-spacing: -.6px;
+  margin: 18px 0 13px;
+  max-width: 650px;
+}
+.feature-banner p { color: #d2ded6; font-size: 12px; line-height: 1.9; max-width: 550px; margin: 0; }
+.feature-action { position: relative; z-index: 1; }
+
+/* PROCESS */
+.process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
+.process-card { border-top: 1px solid var(--line); padding-top: 23px; }
+.process-num { font: 11px var(--body); letter-spacing: 1px; color: var(--gold); }
+.process-card h3 { font: 400 21px var(--serif); margin: 23px 0 10px; }
+.process-card p { font-size: 11px; line-height: 1.9; color: var(--muted); margin: 0; }
+
+/* FAQ */
+.faq { background: #f0efe8; }
+.faq-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; }
+.faq-list { border-top: 1px solid #dcded4; }
+.faq-item { border-bottom: 1px solid #dcded4; }
+.faq-question {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 23px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  gap: 20px;
+  font: 400 16px var(--serif);
+  cursor: pointer;
+}
+.faq-plus {
+  font: 400 24px var(--body);
+  color: var(--green);
+  transition: transform .25s;
+}
+.faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+.faq-answer-inner { overflow: hidden; }
+.faq-answer p { font-size: 12px; line-height: 1.9; color: var(--muted); margin: 0; padding: 0 30px 0 0; }
+.faq-item.open .faq-answer { grid-template-rows: 1fr; }
+.faq-item.open .faq-answer p { padding-bottom: 22px; }
+.faq-item.open .faq-plus { transform: rotate(45deg); }
+
+/* CONTACT */
+.contact { background: var(--paper); }
+.contact-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; }
+.contact-copy .section-title { margin-bottom: 20px; }
+.contact-copy > p { font-size: 13px; line-height: 1.9; color: var(--muted); }
+.contact-list { margin-top: 32px; display: grid; gap: 22px; }
+.contact-item { display: flex; gap: 14px; align-items: flex-start; }
+.contact-item .service-icon { margin: 0; width: 42px; height: 42px; flex: 0 0 auto; }
+.contact-item small { display: block; font-size: 10px; color: var(--muted); margin-bottom: 5px; }
+.contact-item strong, .contact-item a { display: block; font-size: 13px; font-weight: 600; line-height: 1.7; }
+.contact-item a:hover { color: var(--gold); }
+.map-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+.contact-form {
+  background: #f5f4ed;
+  padding: clamp(25px, 4vw, 45px);
+  border: 1px solid var(--line);
+}
+.contact-form h3 { font: 400 30px var(--serif); margin: 0 0 9px; }
+.form-intro { color: var(--muted); font-size: 11px; line-height: 1.8; margin: 0 0 26px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 15px; }
+.field { display: grid; gap: 8px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 10px; color: #5c685f; }
+.field input, .field select, .field textarea {
+  width: 100%;
+  border: 1px solid #dfe1d6;
+  background: var(--paper);
+  padding: 13px 12px;
+  border-radius: 0;
+  color: var(--ink);
+  font-size: 12px;
+  outline: none;
+  transition: border-color .2s;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green); }
+.field textarea { resize: vertical; min-height: 80px; }
+.form-submit { width: 100%; margin-top: 20px; }
+.form-disclaimer { font-size: 9px; line-height: 1.7; color: var(--muted); margin-top: 13px; }
+.form-status { font-size: 11px; line-height: 1.7; margin-top: 12px; color: var(--green); }
+
+/* MAP CTA */
+.map-cta { padding: 0 0 100px; background: var(--paper); }
+.map-cta-inner {
+  min-height: 220px;
+  background: #e8e9df;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: clamp(28px, 5vw, 55px);
+  position: relative;
+  overflow: hidden;
+}
+.map-cta-inner::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 1px solid #244e4122;
+  border-radius: 50%;
+  right: 18%;
+  top: -125px;
+  box-shadow: 0 0 0 25px #244e4108, 0 0 0 50px #244e4106;
+}
+.map-cta-inner > * { position: relative; z-index: 1; }
+.map-cta h2 { font: 400 clamp(30px, 4vw, 45px)/1.2 var(--serif); margin: 14px 0 9px; }
+.map-cta p { font-size: 12px; color: var(--muted); line-height: 1.8; margin: 0; }
+.map-cta-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* FOOTER */
+.footer { background: var(--green-dark); color: #f4f3ec; }
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr .8fr;
+  gap: 45px;
+  padding: 55px 0 45px;
+}
+.footer .logo-main { color: white; }
+.footer .logo-sub { color: #c5d0c7; }
+.footer-about { max-width: 300px; color: #bac9bf; font-size: 11px; line-height: 1.9; margin-top: 19px; }
+.footer-title { font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; color: #d3c49f; margin-bottom: 20px; }
+.footer-links { display: grid; gap: 12px; font-size: 11px; color: #c4d0c7; }
+.footer-links a:hover { color: white; }
+.footer-bottom {
+  border-top: 1px solid #ffffff20;
+  min-height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: #a9bbb0;
+  font-size: 9px;
+}
+.footer-bottom a { color: #e0d1ad; }
+.float-call {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 80;
+  width: 53px;
+  height: 53px;
+  display: grid;
+  place-items: center;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  box-shadow: 0 8px 25px #173c2b35;
+  transition: transform .2s;
+}
+.float-call:hover { transform: translateY(-4px); }
+.float-call .icon { width: 23px; height: 23px; }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: .12s; }
+.delay-2 { transition-delay: .24s; }
+.delay-3 { transition-delay: .36s; }
+
+/* RESPONSIVE */
+@media (min-width: 1450px) {
+  .hero-layout { min-height: 680px; }
+}
+@media (max-width: 1050px) {
+  .nav { gap: 18px; }
+  .nav-links { gap: 15px; }
+  .nav-links a { font-size: 10px; }
+  .nav-actions .btn { padding-inline: 12px; }
+  .hero-layout { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: clamp(45px, 5.5vw, 65px); }
+  .service-card { padding: 24px; }
+  .faq-layout { gap: 40px; }
+  .contact-layout { gap: 35px; }
+}
+@media (max-width: 780px) {
+  .topbar-inner { min-height: 32px; }
+  .topbar-group { gap: 12px; }
+  .topbar-group:last-child { display: none; }
+  .nav { min-height: 72px; }
+  .menu-toggle { display: grid; place-items: center; }
+  .nav-actions .btn { display: none; }
+  .nav-links {
+    display: none;
     position: fixed;
-    bottom: 0;
+    top: 107px;
     left: 0;
     right: 0;
-    display: flex;
-    gap: 10px;
-    padding: 10px;
+    bottom: 0;
+    height: calc(100dvh - 107px);
+    padding: 32px 7% 45px;
     background: var(--bg);
-    border-top: 1px solid var(--line);
-    z-index: 10;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    overflow-y: auto;
   }
-  .mobile-bar .btn { flex: 1; text-align: center; padding: 12px 5px; }
+  .nav-links.open { display: flex; }
+  .nav-links a {
+    font: 400 25px var(--serif);
+    padding: 19px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-copy { padding: 50px 35px; }
+  .hero h1 { font-size: clamp(53px, 10vw, 76px); }
+  .hero-image { min-height: 440px; }
+  .trust-item { padding-inline: 12px; }
+  .trust-item strong { font-size: 11px; }
+  .trust-item span { font-size: 9px; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .about-layout { grid-template-columns: 1fr; gap: 45px; }
+  .about-visual { min-height: 470px; }
+  .feature-layout { grid-template-columns: 1fr; gap: 28px; padding-block: 50px; }
+  .feature-action { justify-self: start; }
+  .process-grid { grid-template-columns: 1fr 1fr; row-gap: 35px; }
+  .faq-layout { grid-template-columns: 1fr; gap: 25px; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .map-cta-inner { align-items: flex-start; flex-direction: column; }
+  .footer-main { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
 }
-@media (max-width: 420px) {
-  .service-grid { grid-template-columns: 1fr; }
-  .logo { font-size: 16px; }
-  .phone { font-size: 11px; }
+@media (max-width: 520px) {
+  .container { width: 90%; }
+  .section { padding: 78px 0; }
+  .section-head { flex-direction: column; align-items: flex-start; gap: 15px; margin-bottom: 32px; }
+  .section-title { font-size: 43px; }
+  .topbar { font-size: 9px; }
+  .topbar-inner { gap: 8px; }
+  .topbar-group { gap: 10px; }
+  .topbar-group a:last-child { display: none; }
+  .logo-main { font-size: 23px; }
+  .hero { padding: 18px 0 25px; }
+  .hero-copy { padding: 40px 24px; }
+  .hero h1 { font-size: clamp(48px, 12.5vw, 65px); letter-spacing: -1.6px; }
+  .hero-text { font-size: 12px; }
+  .hero-buttons { width: 100%; }
+  .hero-buttons .btn { flex: 1; padding-inline: 12px; gap: 8px; font-size: 10px; }
+  .hero-image { min-height: 360px; }
+  .hero-image-caption { left: 19px; right: 19px; bottom: 20px; }
+  .hero-image-caption strong { font-size: 22px; }
+  .trust-strip { padding: 15px 0; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .trust-item, .trust-item:first-child, .trust-item:last-child {
+    justify-content: flex-start;
+    padding: 12px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .trust-item:last-child { border-bottom: 0; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { min-height: 205px; padding: 26px; }
+  .service-icon { margin-bottom: 20px; }
+  .about-visual { min-height: 370px; }
+  .about-accent { width: 48%; height: 39%; }
+  .about-accent strong { font-size: 18px; }
+  .process-grid { grid-template-columns: 1fr; gap: 26px; }
+  .process-card h3 { margin: 13px 0 8px; }
+  .faq-question { font-size: 15px; }
+  .contact-form { padding: 23px 18px; }
+  .contact-form h3 { font-size: 27px; }
+  .form-grid { grid-template-columns: 1fr; gap: 15px; }
+  .field.full { grid-column: auto; }
+  .map-cta { padding-bottom: 70px; }
+  .map-cta-inner { padding: 27px 22px; }
+  .map-cta-actions { width: 100%; }
+  .map-cta-actions .btn { flex: 1; padding-inline: 10px; }
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  .footer-about { max-width: 100%; }
+  .footer-links { font-size: 10px; }
+  .footer-bottom { padding-block: 16px; align-items: flex-start; flex-direction: column; gap: 9px; }
+  .float-call { right: 15px; bottom: 15px; width: 49px; height: 49px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "SAP Aesthet",
+  "telephone": "+998901895200",
+  "openingHours": "Mo-Su 09:00-19:00",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tashkent",
+    "addressCountry": "UZ"
+  }
+}
+</script>
 </head>
+
 <body>
 
-<div class="topbar">SAP AESTHET · ЗАБОТА О ВАШЕЙ УЛЫБКЕ</div>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-group">
+      <span>Ташкент · SAP Aesthet</span>
+      <span>Ежедневно 09:00–19:00</span>
+    </div>
+    <div class="topbar-group">
+      <a href="tel:+998901895200">+998 90 189 52 00</a>
+      <a href="https://go.2gis.com/TRsxP" target="_blank" rel="noopener">Найти клинику ↗</a>
+    </div>
+  </div>
+</div>
 
-<header class="container">
-  <a class="logo" href="#home">
-    SAP AESTHET
-    <span>СТОМАТОЛОГИЯ</span>
-  </a>
-  <nav>
-    <a href="#services">УСЛУГИ</a>
-    <a href="#about">О КЛИНИКЕ</a>
-    <a href="#contact">КОНТАКТЫ</a>
-  </nav>
-  <a class="phone" href="tel:+998901895200">+998 90 189 52 00</a>
+<!-- HEADER -->
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="#home" aria-label="SAP Aesthet — главная">
+      <span class="logo-main">SAP AESTHET</span>
+      <span class="logo-sub">DENTAL CLINIC</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Основная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#about">О клинике</a>
+      <a href="#process">Наш подход</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn" href="#appointment">Записаться <span class="arrow">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
 </header>
 
 <main>
-<section class="container hero" id="home">
-  <div>
-    <div class="eyebrow">СТОМАТОЛОГИЯ ДЛЯ ВСЕЙ СЕМЬИ</div>
-    <h1>Улыбка,<br>в которой <em>уверены.</em></h1>
-    <p class="description">
-      Внимательная стоматологическая помощь взрослым и детям.
-      От профилактики и диагностики до комплексного восстановления улыбки.
-    </p>
-    <div class="buttons">
-      <a class="btn" href="tel:+998901895200">ПОЗВОНИТЬ НАМ ↗</a>
-      <a class="btn light" href="#services">НАШИ УСЛУГИ ↓</a>
-    </div>
-  </div>
-  <div class="hero-art">
-    <div class="circle"><div class="tooth">♧</div></div>
-    <div class="art-caption">
-      <strong>Здоровье начинается с заботы</strong><br>
-      Ваш комфорт — наш приоритет
-    </div>
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="container hero" id="home">
+    <div class="hero-layout">
+      <div class="hero-copy">
+        <div class="hero-kicker reveal">Современная стоматология</div>
+        <h1 class="reveal delay-1">
+          Ваша улыбка.<br>
+          Наше <em>искусство.</em>
+        </h1>
+        <p class="hero-text reveal delay-2">
+          Забота о здоровье зубов в атмосфере спокойствия,
+          внимания и профессионального подхода.
+          Ваша улыбка заслуживает особого отношения.
+        </p>
+        <div class="hero-buttons reveal delay-2">
+          <a class="btn" href="#appointment">Записаться на приём <span class="arrow">↗</span></a>
+          <a class="btn btn-outline" href="#services">Наши услуги</a>
+        </div>
+        <div class="hero-note reveal delay-3">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span>Ежедневно с 09:00 до 19:00<br>Запись по телефону или через WhatsApp</span>
+        </div>
+      </div>
 
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">ЧЕМ МЫ ПОМОЖЕМ</div>
-      <h2>Забота о зубах<br>на каждом этапе.</h2>
-      <p>Подбираем решение с учётом вашей ситуации и помогаем заботиться о здоровье полости рта.</p>
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1400&q=85"
+          alt="Современная стоматология и забота об улыбке"
+          fetchpriority="high"
+          onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#dfe5d8,#b6c8b8,#f1e7d6)'"
+        >
+        <div class="hero-image-caption">
+          <div>
+            <strong>SAP Aesthet</strong>
+            <span>Уверенность начинается с улыбки</span>
+          </div>
+          <span class="caption-number">TASHKENT · UZ</span>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="service-grid">
-      <article class="service">
-        <span class="number">01 / ПРОФИЛАКТИКА</span>
-        <h3>Взрослая и детская стоматология</h3>
-        <p>Осмотр и лечение с вниманием к потребностям каждого пациента.</p>
-      </article>
-      <article class="service">
-        <span class="number">02 / ХИРУРГИЯ</span>
-        <h3>Стоматологическая хирургия</h3>
-        <p>Хирургическая помощь по показаниям и индивидуальному плану лечения.</p>
-      </article>
-      <article class="service">
-        <span class="number">03 / ПРИКУС</span>
-        <h3>Ортодонтия</h3>
-        <p>Консультация по коррекции прикуса и вариантам ортодонтического лечения.</p>
-      </article>
-      <article class="service">
-        <span class="number">04 / ВОССТАНОВЛЕНИЕ</span>
-        <h3>Имплантация и ортопедия</h3>
-        <p>Решения для восстановления функции зубов и естественной улыбки.</p>
-      </article>
-      <article class="service">
-        <span class="number">05 / ЗДОРОВЬЕ ДЁСЕН</span>
-        <h3>Пародонтология</h3>
-        <p>Диагностика и помощь при заболеваниях дёсен и тканей вокруг зубов.</p>
-      </article>
-      <article class="service">
-        <span class="number">06 / ДИАГНОСТИКА</span>
-        <h3>Прицельные снимки</h3>
-        <p>Диагностические снимки для оценки состояния зубов.</p>
-      </article>
+  <!-- TRUST -->
+  <section class="trust-strip">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 21s8-4 8-11V5l-8-3-8 3v5c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <div><strong>Внимание к деталям</strong><span>Индивидуальный подход</span></div>
+      </div>
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+        <div><strong>Разные направления</strong><span>Комплекс стоматологических услуг</span></div>
+      </div>
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><strong>Удобный график</strong><span>Каждый день, 09:00–19:00</span></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="about">
-  <div class="container about-grid">
-    <div class="about-art">
-      <div class="circle">✳</div>
-    </div>
-    <div class="about-copy">
-      <div class="eyebrow">SAP AESTHET</div>
-      <h2>Внимание к деталям.<br>Забота о человеке.</h2>
-      <p>
-        Хорошее лечение начинается с диалога. Важно разобраться в ситуации,
-        объяснить возможные варианты и вместе выбрать подходящий план лечения.
+  <!-- SERVICES -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Наши направления</div>
+          <h2 class="section-title">Здоровье зубов —<br><em>в надёжных руках.</em></h2>
+        </div>
+        <p class="section-description">
+          От профилактической диагностики до сложных стоматологических
+          процедур — выберите направление, с которого хотите начать.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <a class="service-card reveal" href="#appointment" data-service="Взрослая стоматология">
+          <span class="service-arrow">↗</span>
+          <div class="service-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M8 3C4 3 3 7 5 12l2 7c.5 2 2 2 3 0l2-4 2 4c1 2 2.5 2 3 0l2-7c2-5 1-9-3-9-1.5 0-2.5 1-4 1S9.5 3 8 3Z"/></svg>
+          </div>
+          <h3>Взрослая стоматология</h3>
+          <p>Комплексная забота о зубах и полости рта с учётом индивидуальных потребностей.</p>
+        </a>
+
+        <a class="service-card reveal delay-1" href="#appointment" data-service="Детская стоматология">
+          <span class="service-arrow">↗</span>
+          <div class="service-icon">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M4 21c0-4 3-7 8-7s8 3 8 7"/><path d="M10 8h.01M14 8h.01"/></svg>
+          </div>
+          <h3>Детская стоматология</h3>
+          <p>Стоматологическая помощь детям с вниманием к комфорту и возрастным особенностям.</p>
+        </a>
+
+        <a class="service-card reveal delay-2" href="#appointment" data-service="Хирургия">
+          <span class="service-arrow">↗</span>
+          <div class="service-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="m14 4 6 6M12 6l6 6M4 20l9-9M3 21l5-1 2-2-4-4-2 2-1 5Z"/></svg>
+          </div>
+          <h3>Стоматологическая хирургия</h3>
+          <p>Хирургические процедуры по показаниям и после консультации специалиста.</p>
+        </a>
+
+        <a class="service-card reveal" href="#appointment" data-service="Ортодонтия">
+          <span class="service-arrow">↗</span>
+          <div class="service-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M7 3c-3 0-4 3-2 8l2 8c.5 2 2 2 3 0l2-3 2 3c1 2 2.5 2 3 0l2-8c2-5 1-8-2-8-2 0-3 2-5 2S9 3 7 3Z"/><path d="M6 9h12M7 12h10"/></svg>
+          </div>
+          <h3>Ортодонтия</h3>
+          <p>Консультация по коррекции прикуса и выравниванию зубов.</p>
+        </a>
+
+        <a class="service-card reveal delay-1" href="#appointment" data-service="Имплантация и ортопедия">
+          <span class="service-arrow">↗</span>
+          <div class="service-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M8 3C4 3 3 7 5 12l2 7c.5 2 2 2 3 0l2-4 2 4c1 2 2.5 2 3 0l2-7c2-5 1-9-3-9-1.5 0-2.5 1-4 1S9.5 3 8 3Z"/><path d="M12 4v8M9 8h6"/></svg>
+          </div>
+          <h3>Имплантация и ортопедия</h3>
+          <p>Консультации по восстановлению зубов и подбору подходящих решений.</p>
+        </a>
+
+        <a class="service-card reveal delay-2" href="#appointment" data-service="Пародонтология и диагностика">
+          <span class="service-arrow">↗</span>
+          <div class="service-icon">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M8 10h5M10.5 7.5v5"/></svg>
+          </div>
+          <h3>Пародонтология и диагностика</h3>
+          <p>Забота о тканях вокруг зубов и диагностические прицельные снимки.</p>
+        </a>
+      </div>
+
+      <p style="text-align:center;color:var(--muted);font-size:10px;line-height:1.8;margin:26px 0 0">
+        Объём лечения, показания, стоимость и доступность конкретных процедур уточняются у клиники.
       </p>
-      <div class="features">
-        <div><span>✓</span>Взрослым и детям</div>
-        <div><span>✓</span>Диагностика и лечение</div>
-        <div><span>✓</span>Разные направления стоматологии</div>
-        <div><span>✓</span>Индивидуальный подход</div>
-      </div>
-      <a class="btn" href="tel:+998901895200">СВЯЗАТЬСЯ С НАМИ ↗</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="contact" id="contact">
-  <div class="container contact-grid">
-    <div>
-      <div class="eyebrow" style="color:#dcebe3">МЫ РЯДОМ</div>
-      <h2>Будем рады<br>вам помочь.</h2>
-      <p class="contact-intro">
-        Позвоните, чтобы уточнить детали и договориться о визите.
-        Мы работаем ежедневно.
-      </p>
-      <a class="btn" style="background:#fffefa;color:#285c50;border-color:#fffefa" href="tel:+998901895200">
-        ПОЗВОНИТЬ ↗
-      </a>
-    </div>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container about-layout">
+      <div class="about-visual reveal">
+        <img
+          class="about-image"
+          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1100&q=85"
+          alt="Интерьер стоматологической клиники"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e4e7dd,#b7c8ba)'"
+        >
+        <div class="about-accent">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 21s8-4 8-11V5l-8-3-8 3v5c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <strong>Ваша улыбка</strong>
+          <span>Заслуживает заботы<br>и внимания</span>
+        </div>
+      </div>
 
-    <div class="contact-card">
-      <div class="detail">
-        <small>РЕЖИМ РАБОТЫ</small>
-        <strong>Ежедневно · 09:00–19:00</strong>
-      </div>
-      <div class="detail">
-        <small>ТЕЛЕФОН</small>
-        <strong><a href="tel:+998901895200">+998 90 189 52 00</a></strong>
-      </div>
-      <div class="detail">
-        <small>КЛИНИКА</small>
-        <strong>SAP Aesthet · Ташкент</strong>
-      </div>
-      <div class="map-buttons">
-        <a class="btn" href="https://go.2gis.com/TRsxP" target="_blank" rel="noopener">ОТКРЫТЬ 2GIS ↗</a>
-        <a class="btn light" href="https://yandex.uz/maps/-/CXfAzHkK" target="_blank" rel="noopener">ЯНДЕКС КАРТЫ ↗</a>
+      <div class="about-copy reveal delay-1">
+        <div class="eyebrow">О SAP Aesthet</div>
+        <h2 class="section-title">Больше, чем<br><em>просто лечение.</em></h2>
+        <p>
+          SAP Aesthet — стоматологическая клиника в Ташкенте,
+          где вы можете получить консультацию по вопросам здоровья
+          зубов и подобрать подходящее направление лечения.
+        </p>
+        <p>
+          Наша цель — помочь вам разобраться в возможных решениях,
+          понять следующие шаги и чувствовать себя увереннее
+          на каждом этапе обращения.
+        </p>
+        <div class="about-points">
+          <div class="about-point">
+            <span class="check">✓</span>
+            <div><strong>План с учётом ваших потребностей</strong><span>Рекомендации определяются после консультации.</span></div>
+          </div>
+          <div class="about-point">
+            <span class="check">✓</span>
+            <div><strong>Несколько направлений стоматологии</strong><span>Можно обратиться с разными вопросами о здоровье зубов.</span></div>
+          </div>
+          <div class="about-point">
+            <span class="check">✓</span>
+            <div><strong>Удобная связь с клиникой</strong><span>Позвоните или оставьте заявку на консультацию.</span></div>
+          </div>
+        </div>
+        <a class="btn btn-outline" href="#contacts">Связаться с клиникой <span class="arrow">↗</span></a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- FEATURE BANNER -->
+  <section class="feature-banner">
+    <div class="container feature-layout">
+      <div class="reveal">
+        <div class="eyebrow">Начните с консультации</div>
+        <h2>Первый шаг к здоровой улыбке — это разговор.</h2>
+        <p>Расскажите, что вас беспокоит, и уточните у клиники возможное время приёма.</p>
+      </div>
+      <div class="feature-action reveal delay-1">
+        <a class="btn btn-light" href="#appointment">Оставить заявку <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Как начать</div>
+          <h2 class="section-title">Всё начинается<br><em>с простого шага.</em></h2>
+        </div>
+        <p class="section-description">
+          Несколько простых шагов помогут связаться с клиникой
+          и уточнить подходящий вариант консультации.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card reveal">
+          <span class="process-num">01 / СВЯЗЬ</span>
+          <h3>Оставьте заявку</h3>
+          <p>Укажите имя, номер телефона и направление, которое вас интересует.</p>
+        </div>
+        <div class="process-card reveal delay-1">
+          <span class="process-num">02 / ОБЩЕНИЕ</span>
+          <h3>Уточните детали</h3>
+          <p>Свяжитесь с клиникой, чтобы обсудить запрос и доступное время.</p>
+        </div>
+        <div class="process-card reveal delay-2">
+          <span class="process-num">03 / КОНСУЛЬТАЦИЯ</span>
+          <h3>Обсудите варианты</h3>
+          <p>Специалист оценит ситуацию и объяснит возможные дальнейшие шаги.</p>
+        </div>
+        <div class="process-card reveal delay-3">
+          <span class="process-num">04 / ПЛАН</span>
+          <h3>Выберите решение</h3>
+          <p>После консультации можно обсудить план лечения, сроки и стоимость.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container faq-layout">
+      <div class="reveal">
+        <div class="eyebrow">FAQ</div>
+        <h2 class="section-title">Частые<br><em>вопросы.</em></h2>
+        <p class="section-description">
+          Не нашли ответ? Позвоните в клинику —
+          уточним, как лучше поступить в вашей ситуации.
+        </p>
+        <a class="btn btn-outline" href="tel:+998901895200">Задать вопрос <span class="arrow">↗</span></a>
+      </div>
+
+      <div class="faq-list reveal delay-1">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Как записаться на приём?
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Позвоните по номеру +998 90 189 52 00 или заполните форму на этом сайте. Форма откроет WhatsApp с подготовленным сообщением, которое вы сможете отправить клинике.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Какой график работы клиники?
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>По предоставленной информации, клиника работает ежедневно с 09:00 до 19:00. Перед посещением рекомендуем уточнить время приёма по телефону.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Какие услуги доступны?
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Основные направления: взрослая и детская стоматология, хирургия, ортодонтия, имплантация, ортопедия, пародонтология и диагностика с прицельными снимками. Возможность конкретной процедуры уточняйте в клинике.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Сколько стоит лечение?
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Стоимость зависит от услуги и индивидуальной ситуации. Свяжитесь с клиникой, чтобы узнать актуальные цены и возможную стоимость консультации.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Где находится SAP Aesthet?
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Откройте карточку клиники в 2GIS или Яндекс Картах по ссылкам ниже, чтобы посмотреть расположение и построить маршрут.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS + APPOINTMENT -->
+  <section class="section contact" id="contacts">
+    <div class="container contact-layout">
+      <div class="contact-copy reveal">
+        <div class="eyebrow">Контакты</div>
+        <h2 class="section-title">Будем рады<br><em>вашему обращению.</em></h2>
+        <p>Свяжитесь с нами удобным способом или найдите клинику на карте.</p>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 2 2.3Z"/></svg>
+            </div>
+            <div><small>Телефон</small><a href="tel:+998901895200">+998 90 189 52 00</a></div>
+          </div>
+
+          <div class="contact-item">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <div><small>Режим работы</small><strong>Ежедневно, 09:00–19:00</strong></div>
+          </div>
+
+          <div class="contact-item">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <div><small>Местоположение</small><strong>Ташкент, Узбекистан</strong></div>
+          </div>
+        </div>
+
+        <div class="map-buttons">
+          <a class="btn" href="https://go.2gis.com/TRsxP" target="_blank" rel="noopener">Открыть 2GIS ↗</a>
+          <a class="btn btn-outline" href="https://yandex.uz/maps/-/CXfAzHkK" target="_blank" rel="noopener">Яндекс Карты ↗</a>
+        </div>
+      </div>
+
+      <div class="contact-form reveal delay-1" id="appointment">
+        <h3>Запись на консультацию</h3>
+        <p class="form-intro">
+          Заполните форму — WhatsApp откроется с подготовленным сообщением.
+          Вам останется проверить его и нажать «Отправить».
+        </p>
+
+        <form id="appointmentForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="clientName">Ваше имя *</label>
+              <input id="clientName" name="name" type="text" placeholder="Как к вам обращаться?" autocomplete="name" required maxlength="80">
+            </div>
+
+            <div class="field">
+              <label for="clientPhone">Ваш телефон *</label>
+              <input id="clientPhone" name="phone" type="tel" placeholder="+998 __ ___ __ __" autocomplete="tel" required maxlength="25">
+            </div>
+
+            <div class="field full">
+              <label for="clientService">Что вас интересует?</label>
+              <select id="clientService" name="service">
+                <option value="Консультация">Первичная консультация</option>
+                <option value="Взрослая стоматология">Взрослая стоматология</option>
+                <option value="Детская стоматология">Детская стоматология</option>
+                <option value="Хирургия">Стоматологическая хирургия</option>
+                <option value="Ортодонтия">Ортодонтия</option>
+                <option value="Имплантация и ортопедия">Имплантация и ортопедия</option>
+                <option value="Пародонтология и диагностика">Пародонтология и диагностика</option>
+                <option value="Другой вопрос">Другое</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="clientDate">Желаемая дата</label>
+              <input id="clientDate" name="date" type="date">
+            </div>
+
+            <div class="field">
+              <label for="clientTime">Удобное время</label>
+              <select id="clientTime" name="time">
+                <option value="Любое время">Не имеет значения</option>
+                <option value="09:00–12:00">09:00–12:00</option>
+                <option value="12:00–15:00">12:00–15:00</option>
+                <option value="15:00–19:00">15:00–19:00</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="clientMessage">Комментарий (необязательно)</label>
+              <textarea id="clientMessage" name="message" maxlength="500" placeholder="Например, хочу узнать стоимость консультации"></textarea>
+            </div>
+          </div>
+
+          <button class="btn form-submit" type="submit">
+            Продолжить в WhatsApp <span class="arrow">↗</span>
+          </button>
+          <p class="form-disclaimer">
+            Отправка заявки не означает подтверждение записи.
+            Дата и время согласовываются непосредственно с клиникой.
+          </p>
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP LINKS -->
+  <section class="map-cta">
+    <div class="container">
+      <div class="map-cta-inner reveal">
+        <div>
+          <div class="eyebrow">Постройте маршрут</div>
+          <h2>Найдите SAP Aesthet на карте.</h2>
+          <p>Откройте карточку клиники и посмотрите расположение.</p>
+        </div>
+        <div class="map-cta-actions">
+          <a class="btn" href="https://go.2gis.com/TRsxP" target="_blank" rel="noopener">2GIS <span class="arrow">↗</span></a>
+          <a class="btn btn-outline" href="https://yandex.uz/maps/-/CXfAzHkK" target="_blank" rel="noopener">Яндекс <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer class="container">
-  <div class="footer-row">
-    <strong>SAP AESTHET · СТОМАТОЛОГИЯ</strong>
-    <span>© 2026 SAP Aesthet</span>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-main">
+    <div class="footer-brand">
+      <a class="logo" href="#home">
+        <span class="logo-main">SAP AESTHET</span>
+        <span class="logo-sub">DENTAL CLINIC</span>
+      </a>
+      <p class="footer-about">
+        Современная стоматология в Ташкенте.
+        Забота о здоровье зубов начинается с внимания к каждому пациенту.
+      </p>
+    </div>
+
+    <div>
+      <div class="footer-title">Навигация</div>
+      <div class="footer-links">
+        <a href="#services">Услуги</a>
+        <a href="#about">О клинике</a>
+        <a href="#process">Наш подход</a>
+        <a href="#faq">Вопросы и ответы</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-title">Связаться</div>
+      <div class="footer-links">
+        <a href="tel:+998901895200">+998 90 189 52 00</a>
+        <span>Ежедневно · 09:00–19:00</span>
+        <a href="https://go.2gis.com/TRsxP" target="_blank" rel="noopener">2GIS ↗</a>
+        <a href="https://yandex.uz/maps/-/CXfAzHkK" target="_blank" rel="noopener">Яндекс Карты ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© <span id="currentYear"></span> SAP Aesthet. Все права защищены.</span>
     <a href="#home">Наверх ↑</a>
   </div>
 </footer>
 
-<div class="mobile-bar">
-  <a class="btn" href="tel:+998901895200">☎ ПОЗВОНИТЬ</a>
-  <a class="btn light" href="https://go.2gis.com/TRsxP" target="_blank" rel="noopener">⌖ МАРШРУТ</a>
-</div>
+<a class="float-call" href="tel:+998901895200" aria-label="Позвонить в SAP Aesthet">
+  <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 2 2.3Z"/></svg>
+</a>
 
+<script>
+/* CURRENT YEAR */
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+/* MOBILE NAVIGATION */
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+function closeMenu() {
+  navLinks.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Открыть меню");
+  document.body.classList.remove("menu-open");
+  menuToggle.innerHTML = '<svg class="icon" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg>';
+}
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Закрыть меню" : "Открыть меню");
+  document.body.classList.toggle("menu-open", isOpen);
+
+  menuToggle.innerHTML = isOpen
+    ? '<svg class="icon" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>'
+    : '<svg class="icon" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg>';
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", closeMenu);
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 780) closeMenu();
+});
+
+/* REVEAL ON SCROLL */
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(el => observer.observe(el));
+} else {
+  revealElements.forEach(el => el.classList.add("visible"));
+}
+
+/* FAQ ACCORDION */
+document.querySelectorAll(".faq-question").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.closest(".faq-item");
+    const isOpen = item.classList.contains("open");
+
+    document.querySelectorAll(".faq-item").forEach(other => {
+      other.classList.remove("open");
+      other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+    });
+
+    if (!isOpen) {
+      item.classList.add("open");
+      button.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+/* SERVICE CARD -> APPOINTMENT FORM */
+document.querySelectorAll("[data-service]").forEach(card => {
+  card.addEventListener("click", () => {
+    const service = card.dataset.service;
+    const select = document.getElementById("clientService");
+    const matchingOption = Array.from(select.options).find(option => option.value === service);
+
+    if (matchingOption) select.value = service;
+  });
+});
+
+/* DATE PICKER: DON'T OFFER PAST DATES */
+const dateInput = document.getElementById("clientDate");
+const today = new Date();
+const localDate = [
+  today.getFullYear(),
+  String(today.getMonth() + 1).padStart(2, "0"),
+  String(today.getDate()).padStart(2, "0")
+].join("-");
+
+dateInput.min = localDate;
+
+/* APPOINTMENT FORM -> WHATSAPP
+   This opens WhatsApp with a prepared message.
+   It does not send automatically and does not confirm a booking.
+*/
+document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("clientName").value.trim();
+  const phone = document.getElementById("clientPhone").value.trim();
+  const service = document.getElementById("clientService").value;
+  const date = document.getElementById("clientDate").value;
+  const time = document.getElementById("clientTime").value;
+  const message = document.getElementById("clientMessage").value.trim();
+  const status = document.getElementById("formStatus");
+
+  if (!name || !phone) {
+    status.textContent = "Пожалуйста, заполните имя и номер телефона.";
+    return;
+  }
+
+  if (date && date < localDate) {
+    status.textContent = "Пожалуйста, выберите сегодняшнюю или будущую дату.";
+    dateInput.focus();
+    return;
+  }
+
+  const formattedDate = date
+    ? new Date(date + "T12:00:00").toLocaleDateString("ru-RU")
+    : "Не указана";
+
+  const lines = [
+    "Здравствуйте! Хочу уточнить возможность записи в SAP Aesthet.",
+    "",
+    "Имя: " + name,
+    "Телефон: " + phone,
+    "Направление: " + service,
+    "Желаемая дата: " + formattedDate,
+    "Удобное время: " + time
+  ];
+
+  if (message) {
+    lines.push("Комментарий: " + message);
+  }
+
+  lines.push("", "Подскажите, пожалуйста, доступное время приёма.");
+
+  const whatsappUrl =
+    "https://wa.me/998901895200?text=" +
+    encodeURIComponent(lines.join("\n"));
+
+  status.textContent = "Открываем WhatsApp. Проверьте сообщение и отправьте его клинике.";
+
+  const whatsappWindow = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+  if (!whatsappWindow) {
+    status.innerHTML = 'Если WhatsApp не открылся, <a href="' +
+      whatsappUrl +
+      '" target="_blank" rel="noopener" style="text-decoration:underline">нажмите здесь</a>.';
+  }
+});
+
+/* CLOSE MOBILE MENU ON ESCAPE */
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeMenu();
+});
+</script>
 </body>
 </html>
