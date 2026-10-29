@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f5ef">
+<title>SAP Aesthet — Стоматология</title>
+<style>
+:root {
+  --bg: #f7f5ef;
+  --white: #fffefa;
+  --green: #285c50;
+  --ink: #1b2927;
+  --muted: #6f7c77;
+  --line: #dce2dc;
+  --gold: #c6a66b;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+.container { width: min(1100px, 90%); margin: auto; }
+.topbar {
+  background: var(--green);
+  color: white;
+  text-align: center;
+  padding: 9px;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  font-size: 19px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 1.3;
+}
+.logo span {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 4px;
+  font-weight: normal;
+}
+nav { display: flex; gap: 22px; font-size: 13px; }
+nav a:hover { color: var(--green); }
+.phone { font-weight: bold; font-size: 13px; }
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  padding: 75px 0;
+}
+.eyebrow {
+  color: var(--green);
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: bold;
+}
+h1 {
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  font-weight: 500;
+  margin: 20px 0;
+}
+h1 em { color: var(--green); font-style: normal; }
+.description { color: var(--muted); font-size: 15px; max-width: 470px; }
+.buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+.btn {
+  display: inline-block;
+  padding: 13px 19px;
+  background: var(--green);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid var(--green);
+  transition: .2s;
+}
+.btn:hover { opacity: .85; transform: translateY(-2px); }
+.btn.light { background: transparent; color: var(--green); }
+.hero-art {
+  min-height: 400px;
+  background: #dcebe3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-art .circle {
+  width: 260px;
+  height: 260px;
+  border: 1px solid #a5c2b1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.tooth {
+  font-size: 150px;
+  color: var(--green);
+  line-height: 1;
+}
+.art-caption {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  background: var(--white);
+  padding: 16px;
+  font-size: 13px;
+  text-align: center;
+}
+section { padding: 70px 0; }
+.services { background: var(--white); }
+.section-heading { margin-bottom: 30px; }
+h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  font-weight: 500;
+  margin: 12px 0;
+}
+.section-heading p { color: var(--muted); max-width: 500px; }
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.service {
+  padding: 25px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: .2s;
+}
+.service:hover { background: #f2f5ef; }
+.service .number { color: var(--gold); font-size: 11px; letter-spacing: 2px; }
+h3 { font-size: 18px; font-weight: 500; margin: 18px 0 8px; }
+.service p { color: var(--muted); font-size: 13px; margin-bottom: 0; }
+.about-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 55px;
+  align-items: center;
+}
+.about-art {
+  min-height: 330px;
+  background: #e9e8dc;
+  display: grid;
+  place-items: center;
+}
+.about-art .circle {
+  width: 220px;
+  height: 220px;
+  border: 1px solid #a5b8a8;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  font-size: 90px;
+}
+.about-copy p { color: var(--muted); font-size: 14px; }
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 25px 0;
+  font-size: 13px;
+}
+.features span { color: var(--green); margin-right: 8px; }
+.contact { background: var(--green); color: white; }
+.contact h2 { color: white; }
+.contact-intro { color: #dcebe3; max-width: 450px; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.contact-card { background: var(--white); color: var(--ink); padding: 28px; }
+.detail {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+}
+.detail:last-of-type { border-bottom: none; }
+.detail small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+.detail strong { font-size: 14px; }
+.map-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+footer { padding: 28px 0 90px; font-size: 11px; color: var(--muted); }
+.footer-row { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+.mobile-bar { display: none; }
+
+@media (max-width: 750px) {
+  header { flex-wrap: wrap; }
+  nav { order: 3; width: 100%; justify-content: space-between; gap: 10px; font-size: 12px; }
+  .phone { font-size: 12px; }
+  .hero { grid-template-columns: 1fr; padding: 45px 0; gap: 30px; }
+  .hero-art { min-height: 320px; }
+  .hero-art .circle { width: 220px; height: 220px; }
+  .tooth { font-size: 125px; }
+  section { padding: 50px 0; }
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .service { padding: 18px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+  .about-art { min-height: 260px; }
+  .features { grid-template-columns: 1fr; }
+  .mobile-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    z-index: 10;
+  }
+  .mobile-bar .btn { flex: 1; text-align: center; padding: 12px 5px; }
+}
+@media (max-width: 420px) {
+  .service-grid { grid-template-columns: 1fr; }
+  .logo { font-size: 16px; }
+  .phone { font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">SAP AESTHET · ЗАБОТА О ВАШЕЙ УЛЫБКЕ</div>
+
+<header class="container">
+  <a class="logo" href="#home">
+    SAP AESTHET
+    <span>СТОМАТОЛОГИЯ</span>
+  </a>
+  <nav>
+    <a href="#services">УСЛУГИ</a>
+    <a href="#about">О КЛИНИКЕ</a>
+    <a href="#contact">КОНТАКТЫ</a>
+  </nav>
+  <a class="phone" href="tel:+998901895200">+998 90 189 52 00</a>
+</header>
+
+<main>
+<section class="container hero" id="home">
+  <div>
+    <div class="eyebrow">СТОМАТОЛОГИЯ ДЛЯ ВСЕЙ СЕМЬИ</div>
+    <h1>Улыбка,<br>в которой <em>уверены.</em></h1>
+    <p class="description">
+      Внимательная стоматологическая помощь взрослым и детям.
+      От профилактики и диагностики до комплексного восстановления улыбки.
+    </p>
+    <div class="buttons">
+      <a class="btn" href="tel:+998901895200">ПОЗВОНИТЬ НАМ ↗</a>
+      <a class="btn light" href="#services">НАШИ УСЛУГИ ↓</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <div class="circle"><div class="tooth">♧</div></div>
+    <div class="art-caption">
+      <strong>Здоровье начинается с заботы</strong><br>
+      Ваш комфорт — наш приоритет
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">ЧЕМ МЫ ПОМОЖЕМ</div>
+      <h2>Забота о зубах<br>на каждом этапе.</h2>
+      <p>Подбираем решение с учётом вашей ситуации и помогаем заботиться о здоровье полости рта.</p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service">
+        <span class="number">01 / ПРОФИЛАКТИКА</span>
+        <h3>Взрослая и детская стоматология</h3>
+        <p>Осмотр и лечение с вниманием к потребностям каждого пациента.</p>
+      </article>
+      <article class="service">
+        <span class="number">02 / ХИРУРГИЯ</span>
+        <h3>Стоматологическая хирургия</h3>
+        <p>Хирургическая помощь по показаниям и индивидуальному плану лечения.</p>
+      </article>
+      <article class="service">
+        <span class="number">03 / ПРИКУС</span>
+        <h3>Ортодонтия</h3>
+        <p>Консультация по коррекции прикуса и вариантам ортодонтического лечения.</p>
+      </article>
+      <article class="service">
+        <span class="number">04 / ВОССТАНОВЛЕНИЕ</span>
+        <h3>Имплантация и ортопедия</h3>
+        <p>Решения для восстановления функции зубов и естественной улыбки.</p>
+      </article>
+      <article class="service">
+        <span class="number">05 / ЗДОРОВЬЕ ДЁСЕН</span>
+        <h3>Пародонтология</h3>
+        <p>Диагностика и помощь при заболеваниях дёсен и тканей вокруг зубов.</p>
+      </article>
+      <article class="service">
+        <span class="number">06 / ДИАГНОСТИКА</span>
+        <h3>Прицельные снимки</h3>
+        <p>Диагностические снимки для оценки состояния зубов.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-art">
+      <div class="circle">✳</div>
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow">SAP AESTHET</div>
+      <h2>Внимание к деталям.<br>Забота о человеке.</h2>
+      <p>
+        Хорошее лечение начинается с диалога. Важно разобраться в ситуации,
+        объяснить возможные варианты и вместе выбрать подходящий план лечения.
+      </p>
+      <div class="features">
+        <div><span>✓</span>Взрослым и детям</div>
+        <div><span>✓</span>Диагностика и лечение</div>
+        <div><span>✓</span>Разные направления стоматологии</div>
+        <div><span>✓</span>Индивидуальный подход</div>
+      </div>
+      <a class="btn" href="tel:+998901895200">СВЯЗАТЬСЯ С НАМИ ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow" style="color:#dcebe3">МЫ РЯДОМ</div>
+      <h2>Будем рады<br>вам помочь.</h2>
+      <p class="contact-intro">
+        Позвоните, чтобы уточнить детали и договориться о визите.
+        Мы работаем ежедневно.
+      </p>
+      <a class="btn" style="background:#fffefa;color:#285c50;border-color:#fffefa" href="tel:+998901895200">
+        ПОЗВОНИТЬ ↗
+      </a>
+    </div>
+
+    <div class="contact-card">
+      <div class="detail">
+        <small>РЕЖИМ РАБОТЫ</small>
+        <strong>Ежедневно · 09:00–19:00</strong>
+      </div>
+      <div class="detail">
+        <small>ТЕЛЕФОН</small>
+        <strong><a href="tel:+998901895200">+998 90 189 52 00</a></strong>
+      </div>
+      <div class="detail">
+        <small>КЛИНИКА</small>
+        <strong>SAP Aesthet · Ташкент</strong>
+      </div>
+      <div class="map-buttons">
+        <a class="btn" href="https://go.2gis.com/TRsxP" target="_blank" rel="noopener">ОТКРЫТЬ 2GIS ↗</a>
+        <a class="btn light" href="https://yandex.uz/maps/-/CXfAzHkK" target="_blank" rel="noopener">ЯНДЕКС КАРТЫ ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="container">
+  <div class="footer-row">
+    <strong>SAP AESTHET · СТОМАТОЛОГИЯ</strong>
+    <span>© 2026 SAP Aesthet</span>
+    <a href="#home">Наверх ↑</a>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="btn" href="tel:+998901895200">☎ ПОЗВОНИТЬ</a>
+  <a class="btn light" href="https://go.2gis.com/TRsxP" target="_blank" rel="noopener">⌖ МАРШРУТ</a>
+</div>
+
+</body>
+</html>
